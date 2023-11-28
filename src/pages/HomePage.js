@@ -1,9 +1,11 @@
+import PageTitle from "../components/PageTitle.js";
 class HomePage {
   constructor($main) {
     this.$main = $main;
   }
   render() {
-    console.log("HomePage");
+    const pageTitle = new PageTitle(this.$main, "Home Page");
+    pageTitle.render();
   }
 }
 

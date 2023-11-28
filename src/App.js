@@ -15,8 +15,8 @@ class App {
     main.setAttribute("class", "page_main");
     this.$body.appendChild(main);
 
-    const homePage = new HomePage();
-    const aboutPage = new AboutPage();
+    const homePage = new HomePage(main);
+    const aboutPage = new AboutPage(main);
 
     homePage.render();
 
@@ -25,9 +25,11 @@ class App {
 
       switch (href) {
         case "/":
-          return homePage.render();
+          homePage.render();
+          break;
         case "/about":
-          return aboutPage.render();
+          aboutPage.render();
+          break;
       }
     });
   }
