@@ -25,11 +25,27 @@ class Header {
       "HOME"
     );
 
+    headerLeft.addEventListener("click", () => {
+      window.history.pushState("", "", "/");
+      const urlChange = new CustomEvent("urlChange", {
+        detail: { href: "/" },
+      });
+      document.dispatchEvent(urlChange);
+    });
+
     const headerRight = this.createHeaderEle(
       "header_item header_rifht",
       "header_text",
       "ABOUT"
     );
+
+    headerRight.addEventListener("click", () => {
+      window.history.pushState("", "", "/about");
+      const urlChange = new CustomEvent("urlChange", {
+        detail: { href: "/about" },
+      });
+      document.dispatchEvent(urlChange);
+    });
 
     header.appendChild(headerLeft);
     header.appendChild(headerRight);
